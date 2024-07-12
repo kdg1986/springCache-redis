@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.component.Student;
 import com.example.demo.component.StudentImpl2;
+import com.example.demo.dto.UserDTO;
+import com.example.demo.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -28,19 +31,15 @@ public class TestController {
     @Qualifier("hello-2")
     StudentImpl2 sdt2;
 
-    @RequestMapping("/api/test")
-    String test(HttpServletRequest req) {
-        // log.info("123123123123");
-        // studentImpl.Stdudent();
-        // sdt2.Stdudent();
-        // System.out.println(array);
-        // sdt2.echo();
+    @Autowired
+    private UserService userService;
 
-        log.info(req.getSession().toString());
-        log.info(req.getRequestedSessionId());
-        log.info(req.changeSessionId());
+    @RequestMapping("/api/test")
+    List<UserDTO> test(HttpServletRequest req) {
+        // log.info(req.getSession().toString());
+        // log.info(req.getRequestedSessionId());
+        // log.info(req.changeSessionId());
         // log.info(req.session);
-        
-        return "11";
+        return userService.getTestUser();
     }
 }

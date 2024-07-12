@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: demo
+---
+spring:
+  datasource:
+    url: jdbc:postgresql://aws-0-ap-northeast-2.pooler.supabase.com:6543/postgres
+    username: postgres.yeybjjmnwpxqbmopnyzv
+    password: DQNWIPNRymMD8uEX
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-test-query: SELECT 1 AS greeting
+      minimum-idle: 5
+      maximum-pool-size: 20
+---
+spring:
+  data:
+    redis:
+      host: redis-17817.c290.ap-northeast-1-2.ec2.redns.redis-cloud.com
+      password: uXA4CuGHPr1jhcz7TF4m3tzseZulHhuj
+      port: 17817
+
+server:
+  servlet:
+    session:
+      timeout: 3600
+---
+# https://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/
+mybatis:
+  type-aliases-package: com.example.demo.dto
+  mapper-locations: classpath*:com/example/demo/mapper/*SQL.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cacheEnabled: false # default : true
+---
+
