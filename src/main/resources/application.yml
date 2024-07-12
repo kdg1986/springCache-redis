@@ -31,6 +31,18 @@ mybatis:
   mapper-locations: classpath*:com/example/demo/mapper/*SQL.xml
   configuration:
     map-underscore-to-camel-case: true
-    cacheEnabled: false # default : true
+    # cacheEnabled: false # default : true
 ---
-
+# https://docs.spring.io/spring-boot/reference/io/caching.html#io.caching.provider.redis
+spring:
+  cache:
+    type: redis
+    cache-names:
+      - cache1
+      # - cache2
+    redis:
+      time-to-live: 10m
+---
+# logging:
+#   level:
+#     - com.example.demo.service: debug

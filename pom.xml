@@ -38,7 +38,14 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- redis -->
+		<!-- redis,Cache -->
+		
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-cache</artifactId>
+			</dependency>
+		</dependencies>
 
 		<dependency>
 			<groupId>org.springframework.session</groupId>
@@ -78,6 +85,7 @@
 			<optional>true</optional>
 		</dependency>
 
+	
 
 
 	</dependencies>

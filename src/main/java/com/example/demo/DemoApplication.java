@@ -2,10 +2,10 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
+import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
-// @EnableRedisHttpSession
+@EnableCaching
 public class DemoApplication {
 
 	public static void main(String[] args) {
