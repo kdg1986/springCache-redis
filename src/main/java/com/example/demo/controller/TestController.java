@@ -1,12 +1,15 @@
 package com.example.demo.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.component.Student;
@@ -37,10 +40,7 @@ public class TestController {
 
     @RequestMapping("/api/test")
     List<UserDTO> test(HttpServletRequest req) {
-        // log.info(req.getSession().toString());
-        // log.info(req.getRequestedSessionId());
-        // log.info(req.changeSessionId());
-        // log.info(req.session);
         return userService.getTestUser();
     }
+ 
 }
